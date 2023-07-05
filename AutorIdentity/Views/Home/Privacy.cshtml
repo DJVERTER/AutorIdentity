@@ -1,6 +1,17 @@
-﻿@{
+﻿@using AutorIdentity.Areas.Identity.Data;
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+@if (User.IsInRole("User"))
+{
+    <h1>Hi User</h1>
+}
